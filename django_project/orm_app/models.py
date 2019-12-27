@@ -40,4 +40,20 @@ class News(models.Model):
 
     class Meta:
         ordering=('headline',)
+
+class Place(models.Model):
+    name=models.CharField(max_length=30)
+    adress=models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+class Restaurant(models.Model):
+    place=models.OneToOneField(Place,on_delete=models.CASCADE,primary_key=True)
+    serves_veg_foods=models.BooleanField(default=True)
+    serves_nonveg_ffods=models.BooleanField(default=False)
+    
+    def __str__(self):
+        return self.place.name
+    
     
