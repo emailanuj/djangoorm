@@ -60,15 +60,15 @@ class ContactInfo(models.Model):
     name=models.CharField(max_length=40)
     email=models.CharField(max_length=40)
     address=models.CharField(max_length=100)
-
+    phone=models.CharField(max_length=50)
     class Meta:
         abstract=True
 
 class Customer(ContactInfo):
-    phone=models.CharField(max_length=30)
+    cutomer_type=models.CharField(max_length=30,blank=True)
 
 class Staff(ContactInfo):
-    phone=models.CharField(max_length=30)
+    salary=models.CharField(max_length=30,blank=True)
 
 
     
